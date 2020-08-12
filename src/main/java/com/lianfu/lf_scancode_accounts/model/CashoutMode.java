@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CashoutMode {
-    private Integer str;
+  /*  private Integer str;*/
 
 
 }
