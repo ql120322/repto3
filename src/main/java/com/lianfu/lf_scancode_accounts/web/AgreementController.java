@@ -63,35 +63,35 @@ public class AgreementController {
             String code = request.getParameter("code");
             String accessToken = null;    // 2020-6-22 齐亮 写死 方便查看
             String openId = null;
-          /*  if (!"authdeny".equals(code)) {
+            if (!"authdeny".equals(code)) {
                 JSONObject json = WeixinOauth2Token.getOauth2AccessToken(appid, appSecret, code);   // 获取网页授权access_token
                 accessToken = json.getString("access_token");                             // 网页授权接口访问凭证
                 openId = json.getString("openid");                                           // 用户标识
-            }*/
+            }
 
 
 
 
 
             // 2020-6-22 齐亮 写死openid  方便查看
-            openId = "oN5Ye1CSbYyg897lOLyAiYBbfq4I";
+           /* openId = "oN5Ye1CSbYyg897lOLyAiYBbfq4I";
             String nickname = "A董刚";
             String headimgurl = "http://thirdwx.qlogo.cn/mmopen/PiajxSqBRaEIeP70dmSnrT0tcLIpib83K20Oyb58fw3GbqHMpxicAjE1C28x5U2tqm0TWjnOp1tRH8UaXOvGQSKOg/132";
-
+*/
             //2020-6-22 齐亮注释 写死 方便登录进来 查看
             //获取access_token
-           /* String res = httpUtil.doGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appid + "&secret=" + appSecret);
+            String res = httpUtil.doGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appid + "&secret=" + appSecret);
             JSONObject resJson = JSONObject.parseObject(res);
-            String access_token = resJson.getString("access_token");*/
+            String access_token = resJson.getString("access_token");
             //获取用户头像和昵称
-           /* String nickname = null;
+            String nickname = null;
             String headimgurl = null;
             if (access_token != null && !access_token.equals("")) {
                 String userinfo = httpUtil.doGet("https://api.weixin.qq.com/cgi-bin/user/info?access_token=" + access_token + "&openid=" + openId);
                 JSONObject userinfoJson = JSONObject.parseObject(userinfo);
                 nickname = userinfoJson.getString("nickname");
                 headimgurl = userinfoJson.getString("headimgurl");
-            }*/
+            }
             session.setAttribute("openid", openId);
             session.setAttribute("nickname", nickname);
             session.setAttribute("headimgurl", headimgurl);
